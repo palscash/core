@@ -1,0 +1,111 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+>
+
+	<context:component-scan base-package="com.palscash.wallet.database" />
+
+	<context:annotation-config />
+
+	<context:property-placeholder
+		location="classpath:/db.properties"
+		ignore-unresolvable="true" />
+		
+	<bean id="H2Helper" class="com.palscash.wallet.database.common.H2Helper"  />		
+		
+	<!-- Accounts database -->
+	<bean
+		id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close"
+		depends-on="H2Helper"
+	>
+		<property
+			name="driverClass"
+			value="${jdbc.driver}" />
+		<property
+			name="jdbcUrl"
+			value="${jdbc.url}" />
+		<property
+			name="user"
+			value="${jdbc.user}" />
+		<property
+			name="password"
+			value="${jdbc.password}" />
+		<property
+			name="minPoolSize"
+			value="${jdbc.min.pool.size}" />
+		<property
+			name="maxPoolSize"
+			value="${jdbc.max.pool.size}" />
+		<property
+			name="maxIdleTime"
+			value="${jdbc.max.idle.time}" />
+	</bean>
+
+	<bean
+		id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+	>
+
+		<property
+			name="persistenceUnitName"
+			value="dao.wallet" />
+
+		<property
+			name="dataSource"
+			ref="dataSource" />
+
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property
+					name="databasePlatform"
+					value="${jdbc.dialect}" />
+				<property
+					name="generateDdl"
+					value="true" />
+			</bean>
+		</property>
+
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.generate_statistics">false</prop>
+				<prop key="hibernate.use_sql_comments">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.connection.isolation">2</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		id="transactionManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager"
+	>
+		<property
+			name="entityManagerFactory"
+			ref="entityManagerFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<jpa:repositories
+		entity-manager-factory-ref="entityManagerFactory"
+		transaction-manager-ref="transactionManager"
+		base-package="com.palscash.wallet.database.dao" />		
+
+
+
+</beans>

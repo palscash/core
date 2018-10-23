@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+
+	<Appenders>
+
+		<Console
+			name="console"
+			target="SYSTEM_OUT"
+		>
+			<PatternLayout pattern="[%-5level] %d{dd-MMM-yy HH:mm:ss.SSS} %logger{36}.%M() - %msg%n" />
+		</Console>
+
+		<RollingFile name="file">
+			<FileName>${sys:user.home}/.palscash/logs/wallet.log</FileName>
+			<FilePattern>${sys:user.home}/.palscash/logs/wallet-%d{yyyy-MM-dd-hh-mm}.log.zip
+			</FilePattern>
+			<PatternLayout>
+				<Pattern>%d{ddMMyy kk:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy
+					interval="2"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+
+	</Appenders>
+
+	<Loggers>
+
+		<Logger
+			name="org.springframework"
+			level="warn"
+			additivity="false"
+		>
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />
+		</Logger>
+
+		<Logger
+			name="org.springframework.jms"
+			level="trace"
+			additivity="false"
+		>
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />
+		</Logger>
+
+
+		<Logger
+			name="com.palscash"
+			level="debug"
+			additivity="false"
+		>
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />
+
+		</Logger>
+
+		<Root
+			level="info"
+			additivity="false"
+		>
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />
+
+		</Root>
+	</Loggers>
+
+</Configuration>
