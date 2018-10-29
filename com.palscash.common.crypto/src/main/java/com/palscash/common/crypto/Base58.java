@@ -19,14 +19,12 @@ package com.palscash.common.crypto;
 import java.math.BigInteger;
 import java.util.Arrays;
 
-import org.apache.commons.lang3.StringUtils;
-
 /**
  * Base58 is a way to encode Bitcoin addresses (or arbitrary data) as alphanumeric strings.
  * <p>
  * Note that this is not the same base58 as used by Flickr, which you may find referenced around the Internet.
  * <p>
- * You may want to consider working with {@link VersionedChecksummedBytes} instead, which
+ * You may want to consider working with VersionedChecksummedBytes instead, which
  * adds support for testing the prefix and suffix bytes commonly found in addresses.
  * <p>
  * Satoshi explains: why base-58 instead of standard base-64 encoding?
