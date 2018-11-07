@@ -17,10 +17,6 @@
 	</properties>
 
 	<modules>
-		<module>com.palscash.api.model</module>
-		<module>com.palscash.common.crypto</module>
-		<module>com.palscash.api.client</module>
-		<module>com.palscash.api.cli</module>
 		<module>com.palscash.wallet.database</module>
 		<module>com.palscash.wallet.gui</module>
 	</modules>
