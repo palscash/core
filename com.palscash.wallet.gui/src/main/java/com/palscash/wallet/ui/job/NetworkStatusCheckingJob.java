@@ -9,14 +9,14 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import org.apache.commons.lang3.time.DateUtils;
+import org.palscash.network.api.client.PalsCashClient;
+import org.palscash.network.api.client.ValidationNodeUrls;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.palscash.api.client.PalsCashClient;
-import com.palscash.api.client.ValidationNodeUrls;
 import com.palscash.wallet.ui.common.Icons;
 import com.palscash.wallet.ui.gui.MainWindow;
 

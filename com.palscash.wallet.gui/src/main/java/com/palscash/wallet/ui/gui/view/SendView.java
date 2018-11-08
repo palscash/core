@@ -13,16 +13,16 @@ import javax.swing.event.DocumentListener;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
+import org.palscash.common.crypto.PalsCashAccountUuid;
+import org.palscash.network.api.client.PalsCashClient;
+import org.palscash.network.api.model.GetBalanceResponse;
+import org.palscash.network.api.model.GetFeeResponse;
+import org.palscash.network.api.model.TransferResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.palscash.api.client.PalsCashClient;
-import com.palscash.api.model.GetBalanceResponse;
-import com.palscash.api.model.GetFeeResponse;
-import com.palscash.api.model.TransferResponse;
-import com.palscash.common.crypto.PalsCashAccountUuid;
 import com.palscash.wallet.database.domain.Account;
 import com.palscash.wallet.database.service.WalletService;
 import com.palscash.wallet.ui.common.Alert;

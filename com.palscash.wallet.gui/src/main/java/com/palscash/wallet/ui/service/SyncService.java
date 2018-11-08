@@ -6,14 +6,14 @@ import java.math.BigDecimal;
 import javax.annotation.PostConstruct;
 import javax.swing.SwingUtilities;
 
+import org.palscash.network.api.client.PalsCashClient;
+import org.palscash.network.api.model.GetBalanceResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.palscash.api.client.PalsCashClient;
-import com.palscash.api.model.GetBalanceResponse;
 import com.palscash.wallet.database.domain.Account;
 import com.palscash.wallet.database.service.WalletService;
 import com.palscash.wallet.ui.common.SwingHelper;

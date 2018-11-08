@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkEvent.EventType;
 
+import org.palscash.network.api.client.PalsCashClient;
+import org.palscash.network.api.model.TransactionInfo;
+import org.palscash.network.api.model.TransactionListResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +20,6 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
-import com.palscash.api.client.PalsCashClient;
-import com.palscash.api.model.TransactionInfo;
-import com.palscash.api.model.TransactionListResponse;
 import com.palscash.wallet.database.domain.Account;
 import com.palscash.wallet.database.domain.Transfer;
 import com.palscash.wallet.database.service.WalletService;

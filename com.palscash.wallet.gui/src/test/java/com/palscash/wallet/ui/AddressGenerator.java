@@ -1,7 +1,7 @@
 package com.palscash.wallet.ui;
 
-import com.palscash.common.crypto.Curves;
-import com.palscash.common.crypto.PalsCashKeyPair;
+import org.palscash.common.crypto.Curves;
+import org.palscash.common.crypto.PalsCashKeyPair;
 
 public class AddressGenerator {
 

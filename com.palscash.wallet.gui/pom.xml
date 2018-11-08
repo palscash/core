@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -116,13 +117,8 @@
 			<version>1.2</version>
 		</dependency>
 
-<!-- 
-		<dependency>
-			<groupId>com.github.insubstantial</groupId>
-			<artifactId>substance</artifactId>
-			<version>7.3</version>
-		</dependency>
- -->
+		<!-- <dependency> <groupId>com.github.insubstantial</groupId> <artifactId>substance</artifactId> 
+			<version>7.3</version> </dependency> -->
 
 		<dependency>
 			<groupId>net.glxn</groupId>
@@ -148,11 +144,6 @@
 			<version>2.9.6</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.palscash.api.client</groupId>
-			<artifactId>com.palscash.api.client</artifactId>
-			<version>2.0</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -166,6 +157,17 @@
 			<version>2.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.github.insubstantial</groupId>
+			<artifactId>substance</artifactId>
+			<version>7.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.palscash</groupId>
+			<artifactId>org.palscash.network.api.client</artifactId>
+			<version>2.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 </project>
